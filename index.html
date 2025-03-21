@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word & Character Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background: #f4f4f4;
+        }
+        textarea {
+            width: 80%;
+            height: 150px;
+            font-size: 16px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            resize: none;
+        }
+        .counter {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Word & Character Counter ✍</h2>
+    <textarea id="text-input" placeholder="Start typing here..."></textarea>
+    <p class="counter">Words: <span id="word-count">0</span> | Characters: <span id="char-count">0</span></p>
+
+    <script>
+        const textInput = document.getElementById('text-input');
+        const wordCount = document.getElementById('word-count');
+        const charCount = document.getElementById('char-count');
+
+        textInput.addEventListener('input', () => {
+            const text = textInput.value.trim();
+            charCount.textContent = text.length;
+            wordCount.textContent = text ? text.split(/\s+/).length : 0;
+        });
+    </script>
+</body>
+</html>
